@@ -1,0 +1,11 @@
+synchronization between topics
+
+The system receives robot position and priority data from separate ros 2 topics and to manage them in a right way we use two dictionaries ( robot_positions , robot_priorities ) and stored in ( robot_positions , robot_priorities ) for each message
+
+The traffic manager calculate distance and yielding logic (each 0.1 second ) after confirming that both robots have valid position this prevents incomplete data from affecting the system logic
+
+
+Distance Calculation
+
+The distance formula that was used to calculate the distance between robots in real time is (d = ((x2 - x1)^2 + (y2 - y1)^2)^(1/2)) if the calculated distance becomes smaller than the safety distance and another robot has a higher priority level, the system triggers a (DANGER) warning. otherwise, the system displays (CLEAR).
+
